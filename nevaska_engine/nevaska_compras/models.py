@@ -62,7 +62,7 @@ class Budget(md.Model):
     
     # Empresa
 
-    company = md.ForeignKey(Company, on_delete=md.SET_NULL, null=True)
+    company = md.CharField(max_length=100, null=True)
     
     # Dono do Orçamento
     

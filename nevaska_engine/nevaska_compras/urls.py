@@ -8,8 +8,9 @@ urlpatterns = [
     # logout route
     path("logout/", views.logoutView, name='logout'),
     
-    # main path
+    # main path, create budget
     path("", views.mainView, name='main'),
+    path("create/", views.c_budget, name='create-budget'),
     
     # Rotas de delete
     

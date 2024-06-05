@@ -1,0 +1,36 @@
+{% extends 'index.html' %}
+
+
+
+{% block foo %}
+<div>
+    <h3>Criar orçamento:</h3>
+    <form method="post">
+        {% csrf_token %}
+        <div>
+            <select name="opt-emp">
+                {% for company in companies %}
+                <option value="{{company.company_name}}">{{company.company_name}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Nome do orçamento: </label>
+            <input type="text" name="budget_name">
+        </div>
+        <div>
+            <label>Descrição: </label>
+            <textarea name="budget_desc">
+
+            </textarea>
+        </div>
+        <button type="submit">Criar</button>
+    </form>
+</div>
+
+
+
+
+{% endblock foo %}
+
+
