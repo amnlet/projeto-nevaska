@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% block foo %}
+
+<p style="font-weight: bold;"> Usuario: <spam style="color: green;">{{user.username}}</spam> | <a href="{% url 'logout' %}">logout</a></p>
+<hr />
+
+{% if filter_budget %}
+<h3>Lista de Orçamentos em aberto:</h3>
+<p>Aqui estão os orçamentos de: {{user.username}}</p>
+<ul>   
+    {% for budget in budgets %}
+        <li>{{budget.id}} | {{budget.budget_name}} | {{budget.status}} | {{budget.description}} |{{budget.status_ped}} | <form action="{% url 'delete-budget' budget.id %}" style="display: inline;" method="POST"> {% csrf_token %} <button type="submit">Excluir</button></form></li>
+    {% endfor %}
+    
+
+</ul>
+{% endif %}
+{% endblock %}
+
+
